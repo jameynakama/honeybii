@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../ascii2image'
+require_relative '../app/ascii_image'
 
 class TestAsciiImage < MiniTest::Test
   def setup
