@@ -1,4 +1,4 @@
-require 'minitest/autorun'
+require_relative 'helper'
 require_relative '../app/ascii_image'
 
 class TestAsciiImage < MiniTest::Test
