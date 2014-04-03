@@ -18,14 +18,14 @@ class AsciiImage
     @raw = @raw.quantize(2, Magick::GRAYColorspace)
   end
 
-  def chunk(chunk_size=12)
+  def chunks(chunk_size=12)
     chunk_columns = @raw.columns / chunk_size
     chunk_rows = @raw.rows / chunk_size
     chunks = []
     chunk_rows.times do |row_n|
       row = []
       chunk_columns.times do |col_n|
-        row << @raw.crop(col_n * chunk_size, row_n * chunk_size, chunk_size, chunk_size)
+        row << @raw.crop(col_n * chunk_size, row_n * chunk_size, chunk_size, chunk_size, true)
       end
       chunks << row
     end
