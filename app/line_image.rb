@@ -1,3 +1,4 @@
+# NOT DONE
 require 'rmagick'
 require_relative 'ascii_image'
 

@@ -3,13 +3,11 @@ require_relative 'ascii_image'
 
 class ShadedImage < AsciiImage
   attr_accessor :raw
-  attr_accessor :ascii
 
   def initialize(image_filename, point_size = 12)
     super image_filename, point_size
     @raw = Magick::ImageList.new(image_filename).first
     @shades = ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' ']
-    @ascii = Array.new
     to_ascii!
   end
 
@@ -50,9 +48,5 @@ class ShadedImage < AsciiImage
       char = @shades[index]
       @ascii[row][col] = char
     end
-  end
-
-  def to_s
-    @ascii.map { |row| row.join }.join("\n")
   end
 end
