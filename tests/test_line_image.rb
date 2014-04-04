@@ -1,8 +1,8 @@
-require_relative 'helper'
+require_relative '_test_helper'
 
-class TestAsciiImage < MiniTest::Test
+class TestLineImage < MiniTest::Test
   def setup
-    @image = AsciiImage.new('tests/image_test_pattern.gif')
+    @image = LineImage.new('tests/images/honeybees.jpg')
   end
 
   def test_image_can_be_monochromed
