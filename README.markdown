@@ -14,9 +14,9 @@ usage
 
 **examples:**
 
-- `$ ./honeybii.rb -i ~/honeybee.png`
-- `$ ./honeybii.rb -i ~/starrynight.JPG -s 2`
-- `$ ./honeybii.rb -i ~/monalisa.Gif -s 300`
+- `$ ./honeybii.rb -i tests/images/honeybees.jpg`
+- `$ ./honeybii.rb -i tests/images/starry_night.JPG -s 2`
+- `$ ./honeybii.rb -i tests/images/mona_lisa.Jpg -s 400`
 
 current features
 ----------
