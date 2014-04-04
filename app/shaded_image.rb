@@ -2,13 +2,10 @@ require 'rmagick'
 require_relative 'ascii_image'
 
 class ShadedImage < AsciiImage
-  attr_accessor :raw
-
   def initialize(image_filename, point_size = 12)
     super image_filename, point_size
     @raw = Magick::ImageList.new(image_filename).first
     @shades = ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' ']
-    to_ascii!
   end
 
   def grayscale
@@ -35,18 +32,21 @@ class ShadedImage < AsciiImage
     @raw = @raw.resize_to_fit(columns, rows)
   end
 
-  def to_ascii!
-    grayscale!
-    pixelate!
+  def to_ascii
+    clone = self.clone
+    clone.grayscale!
+    clone.pixelate!
 
-    @ascii = Array.new(@raw.rows).collect do |row|
-      Array.new(@raw.columns)
+    clone.ascii = Array.new(clone.raw.rows).collect do |row|
+      Array.new(clone.raw.columns)
     end
     
-    @raw.each_pixel do |pixel, col, row|
-      index = (((@shades.size - 1) * pixel.intensity).to_f / 65535.to_f).round
-      char = @shades[index]
-      @ascii[row][col] = char
+    clone.raw.each_pixel do |pixel, col, row|
+      index = (((clone.shades.size - 1) * pixel.intensity).to_f / 65535.to_f).round
+      char = clone.shades[index]
+      clone.ascii[row][col] = char
     end
+
+    return clone
   end
 end

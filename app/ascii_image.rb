@@ -2,6 +2,8 @@ require 'rmagick'
 
 class AsciiImage
   attr_accessor :raw
+  attr_accessor :shades
+  attr_accessor :ascii
 
   def initialize(image_filename, point_size)
     @raw = Magick::ImageList.new(image_filename)[0]
