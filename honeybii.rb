@@ -32,4 +32,4 @@ end
 # defaults
 options[:pixel_size] = 12 unless options[:pixel_size]
 
-puts ShadedImage.new(options[:image], options[:pixel_size]).to_ascii!
+puts ShadedImage.new(options[:image], options[:pixel_size]).to_ascii
