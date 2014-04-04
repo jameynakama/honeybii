@@ -3,11 +3,14 @@ require_relative 'ascii_image'
 
 class ShadedImage < AsciiImage
   attr_accessor :raw
+  attr_accessor :ascii
 
   def initialize(image_filename, point_size = 12)
     super image_filename, point_size
     @raw = Magick::ImageList.new(image_filename).first
     @shades = ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' ']
+    @ascii = Array.new
+    to_ascii!
   end
 
   def grayscale
@@ -34,25 +37,22 @@ class ShadedImage < AsciiImage
     @raw = @raw.resize_to_fit(columns, rows)
   end
 
-  def to_ascii
+  def to_ascii!
     grayscale!
     pixelate!
 
-    result = Array.new(@raw.rows).collect do |row|
+    @ascii = Array.new(@raw.rows).collect do |row|
       Array.new(@raw.columns)
     end
     
     @raw.each_pixel do |pixel, col, row|
       index = (((@shades.size - 1) * pixel.intensity).to_f / 65535.to_f).round
       char = @shades[index]
-      result[row][col] = char
+      @ascii[row][col] = char
     end
+  end
 
-    result.each do |row|
-      row.each do |char|
-        print char
-      end
-      print "\n"
-    end
+  def to_s
+    @ascii.map { |row| row.join }.join("\n")
   end
 end
