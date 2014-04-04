@@ -25,6 +25,12 @@ class TestShadedImage < MiniTest::Test
     test_image_can_be_pixelated { @image.pixelate! }
   end
 
+  def test_image_can_be_converted_to_ascii
+    assert @image.ascii.empty?
+    @image = @image.to_ascii
+    refute @image.ascii.empty?
+  end
+
   private
 
   def test_image_can_be_grayscaled
