@@ -13,19 +13,19 @@ installation
 usage
 ----------
 
-**code**
+###code
 
     require 'honeybii'
     ascii_bee = ShadedAscii.new('/path/to/an/image.jpg')
     puts ascii_bee
 
-**command line**
+###command line
 
     Usage: honeybii [options]
         -i, --image FILENAME      Name of image file to convert (png|gif|jpg)
         -s, --pixel-size PIXELS   Size of image chunks to process into ascii (smaller => more detail)
 
-_examples:_
+_Examples:_
 
 - `$ honeybii -i /path/to/some/image.jpg`
 - `$ honeybii -i /path/to/some/other/image.JPG -s 2`
