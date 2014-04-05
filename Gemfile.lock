@@ -20,4 +20,4 @@ PLATFORMS
 
 DEPENDENCIES
   minitest-reporters (= 1.0.2)
-  rmagick (= 2.13.2)
+  rmagick (< 3.0)

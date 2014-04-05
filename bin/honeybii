@@ -6,7 +6,7 @@ require 'honeybii'
 
 options = {}
 option_parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: honeybii.rb [options]'
+  opts.banner = 'Usage: honeybii [options]'
 
   opts.on('-i', '--image FILENAME', 'Name of image file to convert (png|gif|jpg)') do |i|
     options[:image] = i
@@ -32,4 +32,4 @@ end
 # defaults
 options[:pixel_size] = 12 unless options[:pixel_size]
 
-puts ShadedImage.new(options[:image], options[:pixel_size]).to_ascii
+puts ShadedAscii.new(options[:image], options[:pixel_size])

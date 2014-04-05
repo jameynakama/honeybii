@@ -8,11 +8,21 @@ This project's secondary reason, below FUN, is to help me learn Ruby. If you see
 usage
 ----------
 
-    Usage: honeybii.rb [options]
+**code**
+
+`$ gem install honeybii`
+
+    require 'honeybii'
+    ascii_bee = ShadedAscii.new('/path/to/an/image.jpg').to_ascii
+    puts ascii_bee
+
+**command line**
+
+    Usage: honeybii [options]
         -i, --image FILENAME      Name of image file to convert (png|gif|jpg)
         -s, --pixel-size PIXELS   Size of image chunks to process into ascii (smaller => more detail)
 
-**examples:**
+_examples:_
 
 - `$ ./honeybii.rb -i tests/images/honeybees.jpg`
 - `$ ./honeybii.rb -i tests/images/starry_night.JPG -s 2`

@@ -13,7 +13,7 @@ class AsciiImage
 
   def to_s
     unless @ascii.empty?
-      @ascii.map { |row| row.join }.join("\n")
+      @ascii
     else
       super
     end
