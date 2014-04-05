@@ -12,8 +12,8 @@ class ShadedAscii < AsciiImage
 
   def pixelate!
     columns = @raw.columns / @point_size
-    rows = @raw.rows / @point_size
-    @raw = @raw.resize_to_fit(columns, rows)
+    rows = @raw.rows / (@point_size * 2)
+    @raw.resize!(columns, rows)
   end
 
   def to_ascii!
