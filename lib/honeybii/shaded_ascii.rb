@@ -1,8 +1,8 @@
+SHADES = ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' ']
+
 class ShadedAscii < AsciiImage
   def initialize(image_filename, point_size = 12)
     super image_filename, point_size
-    @raw = Magick::ImageList.new(image_filename).first
-    @shades = ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' ']
     to_ascii!
   end
 
@@ -20,15 +20,15 @@ class ShadedAscii < AsciiImage
     grayscale!
     pixelate!
 
-    @ascii_array = Array.new(@raw.rows).collect do |row|
+    ascii_array = Array.new(@raw.rows).collect do |row|
       Array.new(@raw.columns)
     end
     
     @raw.each_pixel do |pixel, col, row|
-      index = (((@shades.size - 1) * pixel.intensity).to_f / 65535.to_f).round
-      @ascii_array[row][col] = @shades[index]
+      index = (((SHADES.size - 1) * pixel.intensity).to_f / 65535.to_f).round
+      ascii_array[row][col] = SHADES[index]
     end
 
-    @ascii = @ascii_array.map { |row| row.join }.join("\n")
+    @ascii = ascii_array.map { |row| row.join }.join("\n")
   end
 end

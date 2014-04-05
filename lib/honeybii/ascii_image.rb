@@ -2,13 +2,12 @@ require 'rmagick'
 
 class AsciiImage
   attr_accessor :raw
-  attr_accessor :shades
   attr_accessor :ascii
 
   def initialize(image_filename, point_size)
-    @raw = Magick::ImageList.new(image_filename)[0]
+    @raw = Magick::ImageList.new(image_filename).first
     @point_size = point_size
-    @ascii = Array.new
+    @ascii = ''
   end
 
   def to_s
