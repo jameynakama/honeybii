@@ -1,7 +1,4 @@
 # NOT DONE
-require 'rmagick'
-require_relative 'ascii_image'
-
 class LineImage < AsciiImage
   attr_accessor :raw
 

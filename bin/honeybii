@@ -2,7 +2,7 @@
 require 'optparse'
 require 'rmagick'
 
-require_relative 'app/shaded_image'
+require 'honeybii'
 
 options = {}
 option_parser = OptionParser.new do |opts|
