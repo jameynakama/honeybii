@@ -1,19 +1,22 @@
-(honeybii)[http://honeybii.com]
+[honeybii](http://honeybii.com)
 ==========
 
 honeybii is a tool that converts images to ascii art.
 
 This project's secondary reason, below FUN, is to help me learn Ruby. If you see anything that doesn't particularly jive with The Ruby Way, open an issue! Or submit a Pull Request!
 
+installation
+----------
+
+`$ gem install honeybii`
+
 usage
 ----------
 
 **code**
 
-`$ gem install honeybii`
-
     require 'honeybii'
-    ascii_bee = ShadedAscii.new('/path/to/an/image.jpg').to_ascii
+    ascii_bee = ShadedAscii.new('/path/to/an/image.jpg')
     puts ascii_bee
 
 **command line**
@@ -24,9 +27,9 @@ usage
 
 _examples:_
 
-- `$ ./honeybii.rb -i tests/images/honeybees.jpg`
-- `$ ./honeybii.rb -i tests/images/starry_night.JPG -s 2`
-- `$ ./honeybii.rb -i tests/images/mona_lisa.Jpg -s 400`
+- `$ honeybii -i /path/to/some/image.jpg`
+- `$ honeybii -i /path/to/some/other/image.JPG -s 2`
+- `$ honeybii -i /path/to/yet/another/image.Jpg -s 400`
 
 current features
 ----------
