@@ -11,8 +11,8 @@ class TestShadedAscii < MiniTest::Test
 
   def test_image_can_be_pixelated
     # test image is 640 x 480, so pixelating at default 12px pointsize should
-    # return image 53 x 40 pixels
-    assert_equal [53, 40], [@image.raw.columns, @image.raw.rows]
+    # return image 53 x 20 pixels
+    assert_equal [53, 20], [@image.raw.columns, @image.raw.rows]
   end
 
   def test_image_can_be_converted_to_ascii
