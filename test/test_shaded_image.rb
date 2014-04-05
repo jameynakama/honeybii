@@ -2,7 +2,7 @@ require_relative '_test_helper'
 
 class TestShadedImage < MiniTest::Test
   def setup
-    @image = ShadedImage.new('tests/images/flower_bee.jpg')
+    @image = ShadedImage.new('test/images/flower_bee.jpg')
   end
 
   def test_image_can_be_grayscaled_safe

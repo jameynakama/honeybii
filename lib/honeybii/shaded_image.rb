@@ -1,6 +1,3 @@
-require 'rmagick'
-require_relative 'ascii_image'
-
 class ShadedImage < AsciiImage
   def initialize(image_filename, point_size = 12)
     super image_filename, point_size
