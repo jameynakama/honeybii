@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = 'honeybii'
-  s.version = '1.2.0'
+  s.version = '1.3.0'
   s.date = '2014-04-04'
   s.executables << 'honeybii'
-  s.add_runtime_dependency 'rmagick', ['< 3.0']
+  s.add_runtime_dependency 'rmagick', ['~> 2.0']
   s.files = ['lib/honeybii.rb', 'lib/honeybii/ascii_image.rb', 'lib/honeybii/shaded_ascii.rb']
   s.summary = 'An image to ascii converter'
   s.description = 'A command-line image to ascii conversion tool'
