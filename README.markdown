@@ -25,7 +25,8 @@ usage
 
     Usage: honeybii [options]
         -i, --image FILENAME      Name of image file to convert (png|gif|jpg)
-        -s, --pixel-size PIXELS   Size of image chunks to process into ascii (smaller => more detail)
+        -s, --pixel-size PIXELS   Size of image chunks to process into ascii (smaller => more detail) [default: 12]
+        -g, --gradient N          Gradient level (the lower the denser) [default: 0] [{0=>"MNHKbX6Yji+!:'. "}, {1=>"@%8\#$VYx*=+:~-. "}, {2=>"MHb6j+: "}, {3=>"@8Oo:. "}, {4=>"8Oo:. "}, {5=>"#+: "}]
 
 _Examples:_
 

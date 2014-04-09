@@ -12,12 +12,12 @@ option_parser = OptionParser.new do |opts|
     options[:image] = i
   end
 
-  opts.on('-s', '--pixel-size PIXELS', Integer, 'Size of image chunks to process into ascii (smaller => more detail)') do |s|
+  opts.on('-s', '--pixel-size PIXELS', Integer, 'Size of image chunks to process into ascii (smaller => more detail) [default: 12]') do |s|
     options[:pixel_size] = s
   end
 
   gradients = ShadedAscii.gradients.map.with_index { |g, i| {i => g.join} }
-  opts.on('-g', '--gradient N', Integer, "Gradient level (the lower the denser) #{gradients}") do |g|
+  opts.on('-g', '--gradient N', Integer, "Gradient level (the lower the denser) [default: 0] #{gradients}") do |g|
     options[:gradient_level] = g
   end
 end
