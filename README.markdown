@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/honeybii.svg)](http://badge.fury.io/rb/honeybii)
+
 [honeybii](http://honeybii.com)
 ==========
 
