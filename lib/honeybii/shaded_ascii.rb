@@ -1,8 +1,20 @@
-SHADES = ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' ']
-
 class ShadedAscii < AsciiImage
-  def initialize(image_filename, point_size = 12)
+  class << self
+    attr_accessor :gradients
+  end
+
+  @gradients = [
+    ['M', 'N', 'H', 'K', 'b', 'X', '6', 'Y', 'j', 'i', '+', '!', ':', '\'', '.', ' '],
+    ['@', '%', '8', '#', '$', 'V', 'Y', 'x', '*', '=', '+', ':', '~', '-', '.', ' '],
+    ['M', 'H', 'b', '6', 'j', '+', ':', ' '],
+    ['@', '8', 'O', 'o', ':', '.', ' '],
+    ['8', 'O', 'o', ':', '.', ' '],
+    ['#', '+', ':', ' '],
+  ]
+
+  def initialize(image_filename, point_size = 12, gradient_level: 0)
     super image_filename, point_size
+    @gradient = ShadedAscii.gradients[gradient_level]
     to_ascii!
   end
 
@@ -25,8 +37,8 @@ class ShadedAscii < AsciiImage
     end
     
     @raw.each_pixel do |pixel, col, row|
-      index = (((SHADES.size - 1) * pixel.intensity).to_f / 65535.to_f).round
-      ascii_array[row][col] = SHADES[index]
+      index = (((@gradient.size - 1) * pixel.intensity).to_f / 65535.to_f).round
+      ascii_array[row][col] = @gradient[index]
     end
 
     @ascii = ascii_array.map { |row| row.join }.join("\n")

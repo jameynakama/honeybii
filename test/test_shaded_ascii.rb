@@ -18,4 +18,18 @@ class TestShadedAscii < MiniTest::Test
   def test_image_can_be_converted_to_ascii
     refute @image.ascii.empty?
   end
+
+  def test_image_can_be_converted_to_ascii_with_different_detail_level
+    # test image is 640 x 480, so pixelating at 14px pointsize should
+    # return image 45 x 17 pixels
+    image = ShadedAscii.new('test/images/flower_bee.jpg', 14)
+    assert_equal [45, 17], [image.raw.columns, image.raw.rows]
+    refute image.ascii.empty?
+  end
+
+  def test_image_can_use_different_gradients
+    image_first_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient_level: 0)
+    image_last_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient_level: ShadedAscii.gradients.length - 1)
+    refute_equal image_first_gradient.to_s, image_last_gradient.to_s
+  end
 end
