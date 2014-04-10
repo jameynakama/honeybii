@@ -1,4 +1,4 @@
-require 'rmagick'
+require 'RMagick'
 
 class AsciiImage
   attr_accessor :raw
