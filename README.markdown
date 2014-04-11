@@ -1,6 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/honeybii.svg)](http://badge.fury.io/rb/honeybii)
 
-[honeybii](http://honeybii.com)
+[honeybii](http://www.honeybii.com)
 ==========
 
 honeybii is a tool that converts images to ascii art.
