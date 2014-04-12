@@ -32,4 +32,10 @@ class TestShadedAscii < MiniTest::Test
     image_last_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient_level: ShadedAscii.gradients.length - 1)
     refute_equal image_first_gradient.to_s, image_last_gradient.to_s
   end
+
+  def test_intensity_range_creates_different_ascii
+    shaded_1_to_1 = ShadedAscii.new('test/images/flower_bee.jpg', 14, style: '1_to_1')
+    shaded_relative = ShadedAscii.new('test/images/flower_bee.jpg', 14, style: 'relative')
+    refute_equal shaded_1_to_1.ascii, shaded_relative.ascii
+  end
 end
