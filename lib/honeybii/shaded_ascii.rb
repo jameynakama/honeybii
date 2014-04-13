@@ -48,14 +48,16 @@ class ShadedAscii < AsciiImage
     
     gradient_size = (@gradient.size - 1).to_f
 
-    if @style == 'one_to_one'
+    puts @style
+
+    if @style == 'relative'
       intensity_range = get_intensity_range
       range_max = intensity_range[1] - intensity_range[0]
       @raw.each_pixel do |pixel, col, row|
         index = (gradient_size * (pixel.intensity - intensity_range[0]) / range_max).round
         ascii_array[row][col] = @gradient[index]
       end
-    elsif @style == 'relative'
+    elsif @style == 'one_to_one'
       range_max = 65535.to_f
       @raw.each_pixel do |pixel, col, row|
         index = (gradient_size * pixel.intensity / range_max).round
