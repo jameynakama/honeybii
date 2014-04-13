@@ -30,7 +30,7 @@ usage
 
     Usage: honeybii file.(png|gif|jpg) [options]
         -p, --pixel-size PIXELS          Size of image chunks to process into ascii (smaller => more detail) [default: 12]
-        -g, --gradient N                 Gradient characters [default: 0] [{0=>"@%8\#$VYx*=+:~-. "}, {1=>"8Oo:. "}, {2=>"#+: "}]
+        -g, --gradient N                 Gradient characters [default: 0] [{0=>"@%8\#$VYx*=+:~-.  "}, {1=>"8Oo:.  "}, {2=>"#+:  "}, {3=>"01  "}]
         -o, --one-to-one                 One-to-one shading, as opposed to relative
 
 _Examples:_

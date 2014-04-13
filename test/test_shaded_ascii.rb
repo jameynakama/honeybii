@@ -28,8 +28,8 @@ class TestShadedAscii < MiniTest::Test
   end
 
   def test_image_can_use_different_gradients
-    image_first_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient_level: 0)
-    image_last_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient_level: ShadedAscii.gradients.length - 1)
+    image_first_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient: 0)
+    image_last_gradient = ShadedAscii.new('test/images/flower_bee.jpg', gradient: ShadedAscii.gradients.length - 1)
     refute_equal image_first_gradient.to_s, image_last_gradient.to_s
   end
 
