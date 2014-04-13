@@ -48,8 +48,6 @@ class ShadedAscii < AsciiImage
     
     gradient_size = (@gradient.size - 1).to_f
 
-    puts @style
-
     if @style == 'relative'
       intensity_range = get_intensity_range
       range_max = intensity_range[1] - intensity_range[0]

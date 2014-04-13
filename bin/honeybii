@@ -4,11 +4,7 @@ require 'honeybii'
 
 options = {}
 option_parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: honeybii [options]'
-
-  opts.on('-i', '--image FILENAME', 'Name of image file to convert (png|gif|jpg)') do |i|
-    options[:image] = i
-  end
+  opts.banner = 'Usage: honeybii file.(png|gif|jpg) [options]'
 
   opts.on('-p', '--pixel-size PIXELS', Integer, 'Size of image chunks to process into ascii (smaller => more detail) [default: 12]') do |s|
     options[:pixel_size] = s
@@ -19,20 +15,16 @@ option_parser = OptionParser.new do |opts|
     options[:gradient_level] = g
   end
 
-  opts.on('--one-to-one', "One-to-one shading as opposed to relative") do |r|
+  opts.on('-o', '--one-to-one', "One-to-one shading, as opposed to relative") do |o|
     options[:style] = 'one_to_one'
   end
 end
 
 option_parser.parse!
 
-if options.empty?
-  puts option_parser.help 
-  exit
-end
-
 # required
-unless options[:image] && /.*\.(png|gif|jpg)$/i =~ options[:image]
+image = ARGV.pop
+unless image && /.*\.(png|gif|jpg)$/i =~ image
   raise ArgumentError, 'Please point to an image file (png|gif|jpg)'
 end
 
@@ -46,4 +38,4 @@ unless options[:gradient_level].between? 0, ShadedAscii.gradients.size - 1
   raise ArgumentError, "Please choose a gradient level between 0 and #{ShadedAscii.gradients.size - 1}"
 end
 
-puts ShadedAscii.new(options[:image], options[:pixel_size], gradient_level: options[:gradient_level], style: options[:style])
+puts ShadedAscii.new(image, options[:pixel_size], gradient_level: options[:gradient_level], style: options[:style])
