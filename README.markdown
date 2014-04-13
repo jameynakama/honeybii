@@ -1,11 +1,9 @@
 [![Gem Version](https://badge.fury.io/rb/honeybii.svg)](http://badge.fury.io/rb/honeybii)
 
-[honeybii](http://www.honeybii.com)
+`<(||')` [honeybii](http://www.honeybii.com)
 ==========
 
 honeybii is a tool that converts images to ascii art.
-
-This project's secondary reason, below FUN, is to help me learn Ruby. If you see anything that doesn't particularly jive with The Ruby Way, open an issue! Or submit a Pull Request!
 
 installation
 ----------
@@ -18,21 +16,28 @@ usage
 ###code
 
     require 'honeybii'
+
     ascii_bee = ShadedAscii.new('/path/to/an/image.jpg')
     puts ascii_bee
+    very_detailed_mona_lisa = ShadedAscii.new('/path/to/an/image.png', 2)
+    puts very_detailed_mona_lisa
+    starry_night_with_a_weird_gradient = ShadedAscii.new('/path/to/an/image.png', gradient: 2)
+    puts starry_night_with_a_weird_gradient
+    thick_looking_bee_near_flower = ShadedAscii.new('/path/to/an/image.gif', 10, style: 'one_to_one')
+    puts thick_looking_bee_near_flower
 
 ###command line
 
-    Usage: honeybii [options]
-        -i, --image FILENAME      Name of image file to convert (png|gif|jpg)
-        -s, --pixel-size PIXELS   Size of image chunks to process into ascii (smaller => more detail) [default: 12]
-        -g, --gradient N          Gradient level (the lower the denser) [default: 0] [{0=>"MNHKbX6Yji+!:'. "}, {1=>"@%8\#$VYx*=+:~-. "}, {2=>"MHb6j+: "}, {3=>"@8Oo:. "}, {4=>"8Oo:. "}, {5=>"#+: "}]
+    Usage: honeybii file.(png|gif|jpg) [options]
+        -p, --pixel-size PIXELS          Size of image chunks to process into ascii (smaller => more detail) [default: 12]
+        -g, --gradient N                 Gradient characters [default: 0] [{0=>"@%8\#$VYx*=+:~-. "}, {1=>"8Oo:. "}, {2=>"#+: "}]
+        -o, --one-to-one                 One-to-one shading, as opposed to relative
 
 _Examples:_
 
-- `$ honeybii -i /path/to/some/image.jpg`
-- `$ honeybii -i /path/to/some/other/image.JPG -s 2`
-- `$ honeybii -i /path/to/yet/another/image.Jpg -s 400`
+- `$ honeybii /path/to/some/image.png`
+- `$ honeybii /path/to/some/other/image.JPG -p 2`
+- `$ honeybii /path/to/yet/another/image.Gif -g 1 --one-to-one`
 
 current features
 ----------
@@ -42,6 +47,7 @@ image => shaded ascii art
 planned features
 ----------
 
+custom gradients  
 image => line ascii art  
 colored ascii (as html)
 
