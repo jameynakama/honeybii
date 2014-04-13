@@ -34,8 +34,8 @@ class TestShadedAscii < MiniTest::Test
   end
 
   def test_intensity_range_creates_different_ascii
-    shaded_1_to_1 = ShadedAscii.new('test/images/flower_bee.jpg', 14, style: '1_to_1')
-    shaded_relative = ShadedAscii.new('test/images/flower_bee.jpg', 14, style: 'relative')
-    refute_equal shaded_1_to_1.ascii, shaded_relative.ascii
+    shaded_relative = ShadedAscii.new('test/images/flower_bee.jpg', 14)
+    shaded_one_to_one = ShadedAscii.new('test/images/flower_bee.jpg', 14, style: 'one_to_one')
+    refute_equal shaded_one_to_one.ascii, shaded_relative.ascii
   end
 end

@@ -1,6 +1,7 @@
 class ShadedAscii < AsciiImage
   class << self
     attr_accessor :gradients
+    attr_accessor :styles
   end
 
   @gradients = [
@@ -9,9 +10,11 @@ class ShadedAscii < AsciiImage
     ['#', '+', ':', ' ', ' '],
     ['0', '1', ' ', ' '],
   ]
+  @styles = [ 'relative', 'one_to_one' ]
 
-  def initialize(image_filename, point_size = 12, gradient: 0, style: 'one_to_one')
+  def initialize(image_filename, point_size = 12, gradient: 0, style: 'relative')
     super image_filename, point_size
+    raise ArgumentError, "style must be one of the following: #{ShadedAscii.styles}" unless ShadedAscii.styles.include? style
     @gradient = ShadedAscii.gradients[gradient]
     @style = style
     to_ascii!
