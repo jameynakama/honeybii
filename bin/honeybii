@@ -12,7 +12,7 @@ option_parser = OptionParser.new do |opts|
 
   gradients = ShadedAscii.gradients.map.with_index { |g, i| {i => g.join} }
   opts.on('-g', '--gradient N', Integer, "Gradient characters [default: 0] #{gradients}") do |g|
-    options[:gradient_level] = g
+    options[:gradient] = g
   end
 
   opts.on('-o', '--one-to-one', "One-to-one shading, as opposed to relative") do |o|
@@ -35,12 +35,12 @@ end
 
 # defaults
 options[:pixel_size] = 12 unless options[:pixel_size]
-options[:gradient_level] = 0 unless options[:gradient_level]
+options[:gradient] = 0 unless options[:gradient]
 options[:style] = 'relative' unless options[:style]
 
 # validations
-unless options[:gradient_level].between? 0, ShadedAscii.gradients.size - 1
-  raise ArgumentError, "Please choose a gradient level between 0 and #{ShadedAscii.gradients.size - 1}"
+unless options[:gradient].between? 0, ShadedAscii.gradients.size - 1
+  raise ArgumentError, "Please choose a gradient between 0 and #{ShadedAscii.gradients.size - 1}"
 end
 
-puts ShadedAscii.new(image, options[:pixel_size], gradient_level: options[:gradient_level], style: options[:style])
+puts ShadedAscii.new(image, options[:pixel_size], gradient: options[:gradient], style: options[:style])

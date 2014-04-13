@@ -9,9 +9,9 @@ class ShadedAscii < AsciiImage
     ['#', '+', ':', ' '],
   ]
 
-  def initialize(image_filename, point_size = 12, gradient_level: 0, style: 'one_to_one')
+  def initialize(image_filename, point_size = 12, gradient: 0, style: 'one_to_one')
     super image_filename, point_size
-    @gradient = ShadedAscii.gradients[gradient_level]
+    @gradient = ShadedAscii.gradients[gradient]
     @style = style
     to_ascii!
   end
