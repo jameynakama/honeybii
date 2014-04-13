@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'honeybii'
-  s.version = '2.0.0'
+  s.version = '2.0.1'
   s.date = '2014-04-12'
   s.executables << 'honeybii'
   s.add_runtime_dependency 'rmagick', ['~> 2.13', '>= 2.13.2']
