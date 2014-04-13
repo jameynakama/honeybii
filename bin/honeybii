@@ -21,9 +21,14 @@ option_parser = OptionParser.new do |opts|
 end
 
 option_parser.parse!
+image = ARGV.pop
+
+if !image && options.empty?
+  puts option_parser.help
+  exit
+end
 
 # required
-image = ARGV.pop
 unless image && /.*\.(png|gif|jpg)$/i =~ image
   raise ArgumentError, 'Please point to an image file (png|gif|jpg)'
 end
