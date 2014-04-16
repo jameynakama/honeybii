@@ -20,10 +20,6 @@ class ShadedAscii < AsciiImage
     to_ascii!
   end
 
-  def grayscale!
-    @raw = @raw.quantize(256, Magick::GRAYColorspace)
-  end
-
   def pixelate!
     columns = @raw.columns / @point_size
     rows = @raw.rows / (@point_size * 2)

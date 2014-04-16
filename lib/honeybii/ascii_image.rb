@@ -10,6 +10,16 @@ class AsciiImage
     @ascii = ''
   end
 
+  def grayscale
+    raw_clone = @raw.clone
+    raw_clone = raw_clone.quantize(256, Magick::GRAYColorspace)
+    return raw_clone
+  end
+
+  def grayscale!
+    @raw = @raw.quantize(256, Magick::GRAYColorspace)
+  end
+
   def to_s
     unless @ascii.empty?
       @ascii
